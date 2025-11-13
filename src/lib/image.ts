@@ -57,11 +57,11 @@ export async function buildIcoFromPngBlobs(pngBlobs: Blob[]): Promise<Blob> {
   for (let i = 0; i < count; i++) {
     const arr = entries[i]
     const size = arr.byteLength
-    const w =  i === 0 ? 16 : i === 1 ? 32 : i === 2 ? 48 : 64
+    const w = i === 0 ? 16 : i === 1 ? 32 : i === 2 ? 48 : 64
     const h = w
     const base = 6 + i * 16
-    out[base + 0] = w === 256 ? 0 : w
-    out[base + 1] = h === 256 ? 0 : h
+    out[base + 0] = w
+    out[base + 1] = h
     out[base + 2] = 0
     out[base + 3] = 0
     writeUint16(view, base + 4, 1)
